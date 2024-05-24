@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<decorators>
+  
+  <excludes>
+		<pattern>/main/main.do</pattern>
+	</excludes>
+	<excludes>
+		<pattern>*Body.do</pattern>
+	</excludes>	
+	<excludes>
+		<!-- <pattern>*pop_*</pattern> -->
+		<pattern>*_frame*</pattern>
+		<pattern>*javascript*</pattern>
+		<pattern>*demo*</pattern>
+		<pattern>*nxbiz*</pattern>
+		<pattern>*TouchEn*</pattern>
+	</excludes>
+	
+
+	
+
+  
+	
+</decorators>

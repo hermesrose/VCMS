@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="wasApo">
+	
+   <!-- 리스트 조회 -->
+	<parameterMap id="wasApoList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SERVER" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoList" parameterMap="wasApoList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_WASAPO.WASAPO_LIST(?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+   <!-- 리스트 카운트 조회 -->
+	<parameterMap id="wasApoCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SERVER" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoCount" parameterMap="wasApoCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_WASAPO.WASAPO_COUNT(?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 	
+ 	<!-- 건별 개별 조회 -->
+	<parameterMap id="wasApoView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoView" parameterMap="wasApoView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_WASAPO.WASAPO_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+ 	
+ 	
+ 	
+ 	
+ 	<!-- 신청서 작성하기 -->
+	<parameterMap id="wasApoWrite" class="java.util.Map">
+	<parameter property="P_GIT_WAS_PROJECT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_WORK_NM" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_GIT_WAS_SERVER" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_DD" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DPT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_PROJECT_START" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_PROJECT_END" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_EMP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SORTATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_LOCATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_BE_USE_WAS" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_TEST_IN_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_TEST_OUT_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_TEST_OUT_MR_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_ETC_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DESIRE_DB" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DB_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_REMARK" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoWrite" parameterMap="wasApoWrite">
+		<![CDATA[
+			{ call PKG_WASAPO.WASAPO_WRITE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 	
+ 	<!-- 신청서 수정하기 -->
+	<parameterMap id="wasApoModify" class="java.util.Map">	
+	<parameter property="P_GIT_WAS_PROJECT_NM" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_GIT_WAS_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SERVER" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_DD" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DPT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_PROJECT_START" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_PROJECT_END" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_EMP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SORTATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_LOCATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_BE_USE_WAS" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_TEST_IN_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_TEST_OUT_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_TEST_OUT_MR_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_ETC_URL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DESIRE_DB" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DB_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_REMARK" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoModify" parameterMap="wasApoModify">
+		<![CDATA[
+			{ call PKG_WASAPO.WASAPO_MODIFY(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 	
+ 	<!-- 신청서 삭제-->
+	<parameterMap id="wasApoDelete" class="java.util.Map">
+	<parameter property="P_GIT_WAS_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoDelete" parameterMap="wasApoDelete">
+		<![CDATA[
+			{ call PKG_WASAPO.WASAPO_DELETE(?,?,?)}
+		]]>	
+	</procedure>
+ 	
+</sqlMap>

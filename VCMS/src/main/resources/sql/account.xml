@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Account">
+
+		
+   <!-- 리스트 조회 -->
+	<parameterMap id="accountList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_EMAIL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountList" parameterMap="accountList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ACCOUNT.ACCOUNT_LIST(?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+
+	<!-- 리스트 카운트 조회 -->
+	<parameterMap id="accountCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_EMAIL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountCount" parameterMap="accountCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ACCOUNT.ACCOUNT_COUNT(?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- 건별 개별 조회 -->
+	<parameterMap id="accountView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountView" parameterMap="accountView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ACCOUNT.ACCOUNT_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- Git계정 신청하기 -->
+	<parameterMap id="accountWrite" class="java.util.Map">
+	<parameter property="P_GIT_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_NM" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_GIT_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_EMAIL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_REMARK" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountWrite" parameterMap="accountWrite">
+		<![CDATA[
+			{ call PKG_ACCOUNT.ACCOUNT_WRITE(?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- Git계정 수정하기 -->
+	<parameterMap id="accountModify" class="java.util.Map">
+	<parameter property="P_GIT_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_EMAIL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_REMARK" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountModify" parameterMap="accountModify">
+		<![CDATA[
+			{ call PKG_ACCOUNT.ACCOUNT_MODIFY(?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- Git계정 삭제-->
+	<parameterMap id="accountDelete" class="java.util.Map">
+	<parameter property="P_GIT_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountDelete" parameterMap="accountDelete">
+		<![CDATA[
+			{ call PKG_ACCOUNT.ACCOUNT_DELETE(?,?,?)}
+		]]>	
+	</procedure>
+	
+	
+</sqlMap>

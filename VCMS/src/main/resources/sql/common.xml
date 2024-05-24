@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Common">
+
+		
+   <!-- 소속 조회 -->
+	<parameterMap id="userCompany" class="java.util.Map">
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userCompany" parameterMap="userCompany"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_COMMON.SIGN_UP_COMPANY(?)}
+		]]>	
+	</procedure>
+	
+	<!-- 부서 조회 -->
+	<parameterMap id="DepList" class="java.util.Map">
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="DepList" parameterMap="DepList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_COMMON.DEP_LIST(?)}
+		]]>	
+	</procedure>
+	
+	
+	
+</sqlMap>

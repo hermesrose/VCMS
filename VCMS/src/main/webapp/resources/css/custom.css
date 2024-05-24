@@ -1,0 +1,466 @@
+﻿/*******************************************************************************************************************************
+Blue Theme 
+*******************************************************************************************************************************/
+
+/*******************************************************************************************************************************
+common 
+*******************************************************************************************************************************/
+html,
+button,
+a,
+input,
+select,
+textarea {
+    font-family: dotum, '돋움' !important;
+    font-size: 12px !important;
+}
+
+/*기본값 한글(크롬가능)*/
+input[type=text],
+textarea { 
+-webkit-ime-mode:active !important; 
+-moz-ime-mode:active !important; 
+-ms-ime-mode:active !important; 
+ime-mode:active !important; 
+} 
+
+/*기본 본문 고정 크기 naver참조*/
+.container {
+	margin: 0px auto; padding: 8px 10px 0px; max-width: 1280px; text-align: left; -ms-zoom: 1;
+}
+
+
+
+h1, h2, h3, h4, h5, h5 {
+    font-weight:600 !important;
+}
+
+
+/**********************************************************************************************
+재설정
+*******************************************************************************************************************************/
+/*bootstrap container-fluid 크기 강제 고정 custom */
+.container-fluid-max-width {
+    max-width: 1280px !important;
+}
+
+/*main.css page-content의 사이즈 조절*/
+.tabBoxSize {
+  padding: 15px 15px 10px !important; 
+}
+
+/*main.css tabs-section의 마진 조절*/
+.tabs-section-margin-bottom{
+    margin-bottom: 0px !important;
+}
+
+
+label {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
+/**********************************************************************************************
+검색테이블
+*******************************************************************************************************************************/
+.searchTable table
+{
+    border: 2px solid #335a93;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.searchTable td
+{
+    padding: 5px 5px 3px 5px;
+    color: #335a93;
+    text-align: left;
+    border-bottom: 1px solid #cccccc;
+    background: #EBF0F8;
+    border-width: 1px;
+    border-color: #cccccc;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+.searchTable th
+{
+    background-position: #f1f4ec;
+    padding: 5px 3px 3px 3px;
+    text-align: center;
+    color: #335a93;
+    font-weight: bold;
+    border-bottom: 1px solid #cccccc;
+    background: #EBF0F8;
+    border-width: 1px;
+    border-color: #cccccc;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+
+/**********************************************************************************************
+검색테이블2
+*******************************************************************************************************************************/
+/* SearchBox */
+.SearchBox{border:1px solid #ccc;background:#f5f5f5 url('../Images/SearchBox/SearchBoxBg.gif') repeat-x 0 100%;padding:2px 10px 3px; clear:both;}
+.SearchBox table.Layout{width:100%}
+.SearchBox tr.First th, .SearchBox tr.First td {border-top:0;}
+.SearchBox th.Title{border-top:1px dotted #ccc;padding:8px 0;text-align:left}
+.SearchBox td.Button{border-top:1px dotted #ccc;text-align:right;padding:0;padding-top:1px; white-space:nowrap}
+.SearchBox td.Value{border-top:1px dotted #ccc;padding-right:8px;}
+.SearchBox a{color:#333}
+.SearchBox a:hover{text-decoration:none;color:#333}
+
+
+.SearchBox th {width:80px;letter-spacing:-1px;}
+.SearchBox th span{font-weight:normal; text-indent:12px; background:url('../Images/SearchBox/SearchBox_Bullet.gif') no-repeat 4px 50%; display:block}
+
+.SearchBox .MBtn{background:url('../Images/SearchBox/SearchBox_ButtonLeft.gif');display:inline-block;height:25px;}
+.SearchBox .MBtn .Wrap{background:url('../Images/SearchBox/SearchBox_ButtonRight.gif') no-repeat 100% 0;display:inline-block;height:25px;}
+.SearchBox .MBtn a{display:block;font-weight:bold;font-family:'Malgun Gothic';padding:0px 8px;line-height:25px;height:25px;}
+.SearchBox .MBtn input{background:transparent;border:0;margin:0;font-weight:bold;padding:0px 8px;cursor:pointer;font-family:'Malgun Gothic';height:25px;}
+
+.SearchBox .SBtn {background:url('../Images/SearchBox/SearchBox_ButtonLeft.gif'); display:inline-block;height:25px;}
+.SearchBox .SBtn .Wrap{background:url('../Images/SearchBox/SearchBox_ButtonRight.gif') no-repeat 100% 0;display:inline-block;height:25px;}
+.SearchBox .SBtn a{display:block;font-family:'Malgun Gothic';padding:0px 8px;line-height:25px;height:25px;}
+.SearchBox .SBtn input{background:transparent;border:0;margin:0;padding:0px 8px;cursor:pointer;font-family:'Malgun Gothic';height:25px;}
+
+/*******************************************************************************************************************************
+contentTable table
+<table cellspacing="0" cellpadding="0" rules="all" border="0">
+주의: border-width:0px 이면 안됨
+*******************************************************************************************************************************/
+
+.contentTable table 
+{
+    width: 100%;
+    border-top: 2px solid #4587D8;
+    border-collapse:collapse;
+}
+
+.contentTable th
+{
+    border: 1px solid #cccccc;
+    border-top: 0;
+    padding: 5px 10px 3px 10px;
+    background: #EBF0F8;
+    text-align: left;
+    color: #335a93;
+    font-weight: bold;
+}
+
+.contentTable td
+{
+    border: 1px solid #cccccc;
+    border-top: 0;
+    padding: 5px 5px 3px 5px;
+    text-align: left;
+}
+
+/*******************************************************************************************************************************
+contentTableList table
+* <table cellspacing="0" cellpadding="0" rules="all" border="0">
+* 주의: border-width:0px 이면 안됨
+* contentTable에 hover가 추가됨
+*******************************************************************************************************************************/
+.contentTableList table 
+{
+    width: 100%;
+    border-top: 2px solid #4587D8;
+    border-collapse:collapse;
+}
+
+.contentTableList th
+{
+    border: 1px solid #cccccc;
+    border-top: 0;
+    padding: 5px 10px 3px 10px;
+    background: #EBF0F8;
+    text-align: center;
+    color: #335a93;
+    font-weight: bold;
+}
+
+.contentTableList td
+{
+    border: 1px solid #cccccc;
+    border-top: 0;
+    padding: 5px 5px 3px 5px;
+    text-align: center;
+}
+
+.contentTableList table tbody tr:hover td
+{
+	background: url('../Images/table-images/gradhover.png') repeat-x;
+	/*background-size:contain;*/
+	color: #339;
+}
+
+/*******************************************************************************************************************************
+tableDef table
+*******************************************************************************************************************************/
+.tableDef table { 
+	width :100%;
+}
+
+.tableDef th	
+{
+	background: #EBF0F8;
+	font-weight:bold;
+    color:#335a93;
+    text-align:center;
+    padding:5px 3px 3px 3px; 
+    border-left:1px solid #9fb9de;
+    border-right:1px solid #9fb9de;
+    border-bottom:1px solid #9fb9de;
+    border-top:1px solid #9fb9de;
+}
+
+.tableDef td { 
+	/*background:white;*/
+    padding:5px 3px 3px 5px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    border-top:1px solid #cccccc;
+}
+
+.tableDefFoot td { 
+	background:EBF0F8;
+    padding:5px 5px 3px 5px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    text-align:center;
+}
+
+.tableDefAlt td
+{
+	/*background:#F7F7F6;*/
+	/*background:#f6f6f6;*/
+    padding:5px 5px 3px 5px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+}
+
+/*******************************************************************************************************************************
+tableHead table
+*******************************************************************************************************************************/
+.tableHead table { 
+	width :100%;
+}
+
+.tableHead th
+{
+    background-position: #EBF0F8;
+    background: #EBF0F8;
+    font-weight: bold;
+    color: #335a93;
+    text-align: center;
+    padding: 5px 3px 3px 3px;
+    border-left: 1px solid #9fb9de;
+    border-right: 1px solid #9fb9de;
+    border-bottom: 1px solid #9fb9de;
+    border-top: 2px solid #4587D8;
+}
+
+.tableHead td { 
+	/*background:white;*/
+    padding:5px 5px 3px 5px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    text-align:center;
+}
+
+.tableHeadFoot td { 
+	background:EBF0F8;
+    padding:5px 5px 3px 5px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    text-align:center;
+}
+
+.tableHeadAlt td
+{
+	/*background:#F7F7F6;*/
+	/*background:#f6f6f6;*/
+    padding:5px 5px 3px 5px;
+    border-left:1px solid #cccccc;
+    border-right:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    text-align:center;
+}
+
+.tableHeadScroll th	
+{
+	background: #EBF0F8;
+	font-weight:bold;
+    color:#335a93;
+    text-align:center;
+    padding:5px 3px 3px 3px; 
+    border-left:1px solid #9fb9de;
+    border-right:1px solid #9fb9de;
+    border-bottom:1px solid #9fb9de;
+    border-top:2px solid #4587D8;
+    position:relative;
+	z-index:99;
+}
+
+/*******************************************************************************************************************************
+Side Open 컨텐츠테이블
+*******************************************************************************************************************************/
+.tableSideOpen table
+{
+    width :100%;
+}
+
+.tableSideOpen th
+{ 
+    /*padding: 4px 3px 4px 3px;*/
+    padding: 5px 5px 5px 5px;
+    text-align: left;
+    color:#335a93;
+    font-weight: bold;
+    border-bottom:1px solid #9fb9de;    
+    background: #EBF0F8;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;    
+    border-top-color: #cccccc;
+    border-bottom-color: #cccccc;
+    height: 35px
+}
+
+.tableSideOpen td
+{
+    /*padding: 3px 5px 3px 5px;*/
+    padding: 5px 5px 5px 5px;
+    color: #555;
+    text-align: left;
+    border-bottom: 1px solid #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc #FFFFFF #cccccc #FFFFFF;
+}
+
+
+
+/*******************************************************************************************************************************
+GridPager
+*******************************************************************************************************************************/
+   .GridPager a, .GridPager span
+    {
+        display: block;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        font-family: Arial;
+        font-size: 10pt;
+        margin:10% auto; 
+        padding:2px 4px 4px 4px;        
+    }
+    .GridPager a
+    {
+        background-color: #f5f5f5;
+        color: #335a93;
+        border: 1px solid #9fb9de;
+    }
+    .GridPager span
+    {
+        background-color: #A1DCF2;
+        color: #000;
+        border: 1px solid #3AC0F2;             
+    }
+    .GridPager a:hover{
+    background-color: #A1DCF2;
+        color: #000;
+        border: 1px solid #3AC0F2; 
+}
+
+/*******************************************************************************************************************************
+tableNon
+체크박스리스트,라디오버튼리스트에 테이블 라인 안보이게
+*******************************************************************************************************************************/
+.tableLineNon table
+{
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-top: 0px;
+}
+
+.tableLineNon td
+{
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-top: 0px;
+}
+
+/*******************************************************************************************************************************
+기타
+*******************************************************************************************************************************/
+/* PageTitle Style */
+.PageTitle {background:url('../Images/kea/PageTitleBg.jpg') no-repeat 100% 100%;border-bottom:2px solid #1d6bc4;background-color:white;}
+.PageTitle span {line-height:60px;font-size:23px;font-weight:bold;font-family:'Malgun Gothic';color:#1e6fc8;height:62px;padding-left:10px}
+
+.PageTitle2 {border-bottom:2px solid #1d6bc4;}
+.PageTitle2 span {line-height:40px;font-size:23px;font-weight:bold;font-family:'Malgun Gothic';color:#1e6fc8;height:42px;padding-left:10px}
+
+.PopupPageTitle
+{
+	margin: 0px; 
+	/*background: url('./Image/PopupPageTitleBg.gif');*/
+	height: 35px;
+	z-index: 999; /*position: absolute;*/
+	width: 100%;
+	background-color: #1E6FC7;
+	text-align: center;
+}
+.PopupPageTitle span
+{
+	margin-left: 17px;
+	padding-left: 15px;
+	height: 35px;
+	color: White;
+	white-space: nowrap;
+	line-height: 34px;
+	font-weight: bold;
+	font-size: 16px;
+	font-family: 'Malgun Gothic';
+}
+
+/*tooltip*/
+.tooltipH { font:Verdana, Geneva, sans-serif; font-size:12px; color:#666; position:relative; }
+.tooltipH:hover:after
+{
+	content: attr(data-tooltip);
+	display: block;
+	padding: 10px;
+	color: #FFF;
+	background: #000000;
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	white-space:pre;
+	z-index: 1;
+	opacity: 0.8;
+
+}
+.tooltipH:hover:before{
+ display:block;
+ content:"";
+ position:absolute; top:15px; left:50px;
+ border-right:10px solid transparent; 
+ border-bottom:10px solid #333; 
+ border-left:10px solid transparent; 
+ z-index: 1; 
+ opacity: 0.8;
+}

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+
+		
+   <!-- 회원 로그인 -->
+	<parameterMap id="userLogin" class="java.util.Map">
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PW" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userLogin" parameterMap="userLogin"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_USER.USER_LOGIN(?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- ID 중복체크 -->
+	<parameterMap id="userIdCheck" class="java.util.Map">
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userIdCheck" parameterMap="userIdCheck"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_USER.USER_ID_CHECK(?,?)}
+		]]>	
+	</procedure> 
+
+	<!-- 회원 가입하기 -->
+	<parameterMap id="insertUser" class="java.util.Map">
+	<parameter property="P_USER_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_NM" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_USER_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="insertUser" parameterMap="insertUser" >
+		<![CDATA[
+			{ call PKG_USER.USER_INSERT(?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- 유저 조회 -->
+	<parameterMap id="userInfo" class="java.util.Map">
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userInfo" parameterMap="userInfo"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_USER.USER_INFO(?,?)}
+		]]>	
+	</procedure> 
+	
+	<!-- 유저 수정 -->
+	<parameterMap id="userModify" class="java.util.Map">
+	<parameter property="P_USER_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userModify" parameterMap="userModify"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_USER.USER_MODIFY(?,?,?,?,?)}
+		]]>	
+	</procedure> 
+	
+	 	
+	
+</sqlMap>

@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+.form-controlbox-third{padding-top:10px;}
+.content-middle{text-align: center; font-weight: bold;}
+.tableDetail-view{border-top: none; border-bottom: none; border-left: none; border-right:none;  background-color: #ffffff;}
+.login-main{color: gray; font-size: 14px; text-decoration:none;}
+.sign-up-main{width: 50%;}
+.list-title-image-dot{background-image: url(../images/dot01.png);  background-repeat: no-repeat; background-position: left center;}
+.account-write-top{text-align: center;}
+.account-write-content{height: 70px; text-align: center; padding-top:10px;}
+.target{background:#364d68; color:#fff; font-weight:400; padding:5px 5px; border-radius:3px; border:1px solid #364d68; vertical-align:0; cursor:pointer; white-space: nowrap;}

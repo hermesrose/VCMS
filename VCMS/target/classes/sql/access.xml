@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="access">
+	
+   <!-- 리스트 조회 -->
+	<parameterMap id="accessList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_ORGAN" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ORGAN_LOCA" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_SAVE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessList" parameterMap="accessList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ACCESS.ACCESS_LIST(?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+	<!-- 리스트 카운트 조회 -->
+	<parameterMap id="accessCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_ORGAN" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ORGAN_LOCA" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_SAVE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessCount" parameterMap="accessCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ACCESS.ACCESS_COUNT(?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- 건별 개별 조회 -->
+	<parameterMap id="accessView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessView" parameterMap="accessView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ACCESS.ACCESS_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- 신청서 작성하기 -->
+	<parameterMap id="accessWrite" class="java.util.Map">
+	<parameter property="P_ACC_PROJECT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DPT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_PROJECT_START" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_ACC_PROJECT_END" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_EMP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_SORTATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_DD" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_ORGAN" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ORGAN_LOCA" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_SAVE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_GIT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_AFFILIATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_REMARK" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessWrite" parameterMap="accessWrite">
+		<![CDATA[
+			{ call PKG_ACCESS.ACCESS_WRITE(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- 신청서 수정하기 -->
+	<parameterMap id="accessModify" class="java.util.Map">	
+	<parameter property="P_ACC_PROJECT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DPT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_PROJECT_START" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>	
+	<parameter property="P_ACC_PROJECT_END" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_EMP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_SORTATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_DD" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_ORGAN" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ORGAN_LOCA" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_SAVE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_GIT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_AFFILIATION" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_REMARK" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessModify" parameterMap="accessModify">
+		<![CDATA[
+			{ call PKG_ACCESS.ACCESS_MODIFY(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+	
+	<!-- 신청서 삭제-->
+	<parameterMap id="accessDelete" class="java.util.Map">
+	<parameter property="P_ACC_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessDelete" parameterMap="accessDelete">
+		<![CDATA[
+			{ call PKG_ACCESS.ACCESS_DELETE(?,?,?)}
+		]]>	
+	</procedure>
+	
+	
+	
+</sqlMap>

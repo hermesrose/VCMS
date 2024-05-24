@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="admin">
+	
+   <!-- 슈퍼관리자 조회 -->
+	<parameterMap id="adminCheck" class="java.util.Map">
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="adminCheck" parameterMap="adminCheck"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ADMIN_CHECK(?)}
+		]]>	
+	</procedure>
+ 
+ <!--acoount  리스트 조회 -->
+	<parameterMap id="accountList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_EMAIL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountList" parameterMap="accountList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCOUNT_LIST(?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+
+	<!-- acoount 리스트 카운트 조회 -->
+	<parameterMap id="accountCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_EMAIL" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountCount" parameterMap="accountCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCOUNT_COUNT(?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+   <!--acoount  건별 개별 조회 -->
+	<parameterMap id="accountView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountView" parameterMap="accountView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCOUNT_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!--acoount 관리자 코멘트 -->
+	<parameterMap id="accountComent" class="java.util.Map">
+	<parameter property="P_GIT_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_STU_CONT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accountComent" parameterMap="accountComent">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCOUNT_COMENT(?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- dbapo 리스트 조회 -->
+	<parameterMap id="dbApoList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_DB_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_APP_DB_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="dbApoList" parameterMap="dbApoList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.DBAPO_LIST(?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- dbapo 리스트 카운트 조회 -->
+	<parameterMap id="dbApoCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_DB_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_APP_DB_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="dbApoCount" parameterMap="dbApoCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.DBAPO_COUNT(?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- dbapo 건별 개별 조회 -->
+	<parameterMap id="dbApoView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="dbApoView" parameterMap="dbApoView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.DBAPO_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!--dbApo 관리자 코멘트 -->
+	<parameterMap id="dbApoComent" class="java.util.Map">
+	<parameter property="P_GIT_DB_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_STO_ADDR" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_STU_CONT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_DB_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="dbApoComent" parameterMap="dbApoComent">
+		<![CDATA[
+			{ call PKG_ADMIN.DBAPO_COMENT(?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- wasApo 리스트 조회 -->
+	<parameterMap id="wasApoList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SERVER" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoList" parameterMap="wasApoList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.WASAPO_LIST(?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+   <!-- wasApo 리스트 카운트 조회 -->
+	<parameterMap id="wasApoCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_SERVER" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoCount" parameterMap="wasApoCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.WASAPO_COUNT(?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+   <!-- wasApo 개별 조회 -->
+	<parameterMap id="wasApoView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoView" parameterMap="wasApoView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.WASAPO_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!--wasApo 관리자 코멘트 -->
+	<parameterMap id="wasApoComent" class="java.util.Map">
+	<parameter property="P_GIT_WAS_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_STU_CONT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_GIT_WAS_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="wasApoComent" parameterMap="wasApoComent">
+		<![CDATA[
+			{ call PKG_ADMIN.WASAPO_COMENT(?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!--access  리스트 조회 -->
+	<parameterMap id="accessList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_ORGAN" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ORGAN_LOCA" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_SAVE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessList" parameterMap="accessList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCESS_LIST(?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+	<!--access  리스트 카운트 조회 -->
+	<parameterMap id="accessCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_ORGAN" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_ORGAN_LOCA" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_SAVE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessCount" parameterMap="accessCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCESS_COUNT(?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- access 건별 개별 조회 -->
+	<parameterMap id="accessView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessView" parameterMap="accessView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCESS_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+ 
+ 
+ <!--access 관리자 코멘트 -->
+	<parameterMap id="accessComent" class="java.util.Map">
+	<parameter property="P_ACC_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_STU_CONT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_ACC_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="accessComent" parameterMap="accessComent">
+		<![CDATA[
+			{ call PKG_ADMIN.ACCESS_COMENT(?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- source 리스트 조회 -->
+	<parameterMap id="sourceList" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_CH_CONTENT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_REF_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_REF_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="sourceList" parameterMap="sourceList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call  PKG_ADMIN.SOURCE_LIST(?,?,?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+	<!-- source 리스트 카운트 조회 -->
+	<parameterMap id="sourceCount" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_CH_CONTENT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_APP_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_REF_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_REF_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_CON_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_WORK_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="sourceCount" parameterMap="sourceCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call  PKG_ADMIN.SOURCE_COUNT(?,?,?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- source 개별 조회 -->
+	<parameterMap id="sourceView" class="java.util.Map">
+	<parameter property="P_NOW_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="sourceView" parameterMap="sourceView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.SOURCE_VIEW(?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!--source 관리자 코멘트 -->
+	<parameterMap id="sourceComent" class="java.util.Map">
+	<parameter property="P_SCM_MOVN_STAT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_STU_CONT" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_SCM_APP_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="sourceComent" parameterMap="sourceComent">
+		<![CDATA[
+			{ call PKG_ADMIN.SOURCE_COMENT(?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!--user  리스트 조회 -->
+	<parameterMap id="userList" class="java.util.Map">
+	<parameter property="P_USER_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_START_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_END_ROW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userList" parameterMap="userList"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.USER_LIST(?,?,?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+
+	<!-- user 리스트 카운트 조회 -->
+	<parameterMap id="userCount" class="java.util.Map">
+    <parameter property="P_USER_DATE_FROM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_DATE_TO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_ID" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_NM" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userCount" parameterMap="userCount"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.USER_COUNT(?,?,?,?,?,?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- user 개별 조회 -->
+	<parameterMap id="userView" class="java.util.Map">
+	<parameter property="P_USER_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_CUR" jdbcType="ORACLECURSOR" javaType="java.sql.ResultSet" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userView" parameterMap="userView"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.USER_VIEW(?,?)}
+		]]>	
+	</procedure>
+ 
+ <!-- user 유저 수정 -->
+	<parameterMap id="userModify" class="java.util.Map">
+	<parameter property="P_USER_COMPANY" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PHONE" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_PW" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_USER_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userModify" parameterMap="userModify"  resultClass="java.util.HashMap">
+		<![CDATA[
+			{ call PKG_ADMIN.USER_MODIFY(?,?,?,?,?)}
+		]]>	
+	</procedure> 
+ 
+ <!-- user 신청서 삭제-->
+	<parameterMap id="userDelete" class="java.util.Map">
+	<parameter property="P_USER_NO" jdbcType= "VARCHAR" javaType="java.lang.String" mode="IN"/>
+	<parameter property="P_MSG" jdbcType= "VARCHAR" javaType="java.lang.String" mode="OUT"/>
+    </parameterMap>
+    <procedure id="userDelete" parameterMap="userDelete">
+		<![CDATA[
+			{ call PKG_ADMIN.USER_DELETE(?,?)}
+		]]>	
+	</procedure>
+ 
+ 
+</sqlMap>
